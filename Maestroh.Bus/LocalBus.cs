@@ -4,7 +4,13 @@ using System.Threading;
 
 namespace Maestroh.Bus
 {
-    public class LocalBus
+    public interface IBus
+    {
+        void RegisterHandler<TMessage>(Action<TMessage> handler) where TMessage : class, IMessage;
+        void Publish<TMessage>(TMessage message) where TMessage : IMessage;
+    }
+
+    public class LocalBus : IBus
     {
         private readonly Dictionary<Type, List<Action<IMessage>>> _routes;
 

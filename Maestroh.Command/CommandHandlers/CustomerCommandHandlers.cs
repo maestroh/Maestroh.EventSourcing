@@ -3,7 +3,7 @@ using Maestroh.Command.Domain;
 
 namespace Maestroh.Command.CommandHandlers
 {
-    class CustomerCommandHandlers
+    public class CustomerCommandHandlers
     {
         private readonly IRepository<Customer> _repository;
 
@@ -15,7 +15,7 @@ namespace Maestroh.Command.CommandHandlers
         public void Handle(CreateCustomer message)
         {
             var customer = Customer.CreateNew(message.CustomerName);
-            _repository.Save(customer, -1);
+            _repository.Save(customer, 0);
         }
     }
 }

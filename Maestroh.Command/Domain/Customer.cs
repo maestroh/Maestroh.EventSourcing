@@ -5,10 +5,14 @@ namespace Maestroh.Command.Domain
 {
     public class Customer : AggregateRoot
     {
-        private Customer(string customerName)
+        public Customer()
         {
             RegisterEvents();
+        }
 
+        private Customer(string customerName)
+            : this()
+        {
             Apply(new CustomerCreatedEvent(Guid.NewGuid(), customerName));
         }
 

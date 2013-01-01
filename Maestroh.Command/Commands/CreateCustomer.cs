@@ -6,8 +6,7 @@ namespace Maestroh.Command.Commands
     {
         public string CustomerName { get; set; }
 
-        public CreateCustomer(Guid id, string customerName)
-            : base(id)
+        public CreateCustomer(string customerName)
         {
             CustomerName = customerName;
         }

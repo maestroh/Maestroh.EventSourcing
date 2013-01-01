@@ -15,7 +15,7 @@ namespace Maestroh.Bus.Tests
             var stub = new HandlerStub();
             var bus = new LocalBus();
             bus.RegisterHandler<CreateCustomer>(stub.Handle);
-            var command = new CreateCustomer(Guid.NewGuid(), "customer name");
+            var command = new CreateCustomer("customer name");
             bus.Publish(command);
             Assert.IsTrue(stub.ResetEvent.WaitOne(10000));
 
