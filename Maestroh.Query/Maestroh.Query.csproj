@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3622E721-B79F-4336-94E5-642D2A26BB65}</ProjectGuid>
+    <ProjectGuid>{FA303FE1-3C18-4A02-A90C-2E6289DE5713}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Maestroh.CRM.DTO</RootNamespace>
-    <AssemblyName>Maestroh.CRM.DTO</AssemblyName>
+    <RootNamespace>Maestroh.Query</RootNamespace>
+    <AssemblyName>Maestroh.Query</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,41 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dapper.1.12.1\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.5.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="EventHandlers\CustomerEventHandlers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CustomerQueries.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Maestroh.Bus\Maestroh.Bus.csproj">
+      <Project>{b13c2e24-c7a7-4943-b067-16df8c45d400}</Project>
+      <Name>Maestroh.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maestroh.Command\Maestroh.Command.csproj">
+      <Project>{32e4c28e-c01a-43c4-a64c-3bcd04f4b9da}</Project>
+      <Name>Maestroh.Command</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
