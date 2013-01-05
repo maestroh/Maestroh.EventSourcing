@@ -47,6 +47,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Maestroh.Bus\Maestroh.Bus.csproj">
+      <Project>{B13C2E24-C7A7-4943-B067-16DF8C45D400}</Project>
+      <Name>Maestroh.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maestroh.Command\Maestroh.Command.csproj">
+      <Project>{32E4C28E-C01A-43C4-A64C-3BCD04F4B9DA}</Project>
+      <Name>Maestroh.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maestroh.Query\Maestroh.Query.csproj">
+      <Project>{FA303FE1-3C18-4A02-A90C-2E6289DE5713}</Project>
+      <Name>Maestroh.Query</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

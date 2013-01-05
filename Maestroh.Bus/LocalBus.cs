@@ -35,7 +35,7 @@ namespace Maestroh.Bus
         public void Publish<TMessage>(TMessage message) where TMessage : IMessage
         {
             List<Action<IMessage>> handlers;
-            if (!_routes.TryGetValue(typeof(TMessage), out handlers)) return;
+            if (!_routes.TryGetValue(message.GetType(), out handlers)) return;
 
             foreach (var handler in handlers)
             {

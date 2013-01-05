@@ -7,7 +7,7 @@ using Maestroh.Query.EventHandlers;
 
 namespace Maestroh.Query.Service
 {
-    class CustomerQueries
+    public class CustomerQueries
     {
         private readonly IBus _bus;
 
@@ -17,7 +17,7 @@ namespace Maestroh.Query.Service
             _bus.RegisterHandler<CustomerCreatedEvent>(CustomerEventHandlers.Handle);
         }
 
-        public IEnumerable<Customer> Customers()
+        public IEnumerable<Customer> GetCustomers()
         {
             var conn =
                 new MySql.Data.MySqlClient.MySqlConnection(
